@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import TPJU_Joueur.classesTP.Joueur;
-import TPJU_Joueur.classesTP.Maillot;
+import handball_classes.Joueur;
+import handball_classes.Maillot;
 
 public class MaillotTest {
 	Joueur newJoueur;

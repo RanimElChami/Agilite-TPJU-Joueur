@@ -1,6 +1,6 @@
-package TPJU_Joueur.classesTP;
+package handball_classes;
 
-import TPJU_Joueur.classesTP.Joueur;
+import handball_classes.Joueur;
 
 public class Maillot {
 	// Variables d'instance

@@ -1,4 +1,4 @@
-package TPJU_Joueur.classesTP;
+package handball_classes;
 
 import java.util.Objects;
 

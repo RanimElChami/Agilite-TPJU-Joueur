@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import TPJU_Joueur.classesTP.Joueur;
+import handball_classes.Joueur;
 
 public class JoueurTest {
 	Joueur newJoueur;

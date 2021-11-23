@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import TPJU_Joueur.classesTP.Equipe;
-import TPJU_Joueur.classesTP.Joueur;
-import TPJU_Joueur.classesTP.Maillot;
 import exceptions.JoueurDejaMembreException;
 import exceptions.JoueurNonMembreException;
+import handball_classes.Equipe;
+import handball_classes.Joueur;
+import handball_classes.Maillot;
 
 public class EquipeTest {
 
@@ -96,16 +96,13 @@ public class EquipeTest {
 	}
 
 	@Test(expected = JoueurNonMembreException.class)
-	public void testJoueurNonMembreException() {
+	public void testJoueurNonMembreException() throws JoueurNonMembreException {
 		ArrayList<Joueur> nouvelleListeSupression;
-		try {
-			nouvelleListeSupression = equipe.supprimerJoueur(premierNouveauJoueur);
-			// Vérifier si le joueur ne fait plus partie de l'équipe
-			assertFalse(nouvelleListeSupression.contains(premierNouveauJoueur));
-			// Vérifier que le joueur n'a plus d'équipe et l'attribut équipe est null
-			assertNull(premierNouveauJoueur.getEquipe());
-		} catch (JoueurNonMembreException e) {
-			e.printStackTrace();
-		}
+		nouvelleListeSupression = equipe.supprimerJoueur(premierNouveauJoueur);
+		// Vérifier si le joueur ne fait plus partie de l'équipe
+		assertFalse(nouvelleListeSupression.contains(premierNouveauJoueur));
+		// Vérifier que le joueur n'a plus d'équipe et l'attribut équipe est null
+		assertNull(premierNouveauJoueur.getEquipe());
+
 	}
 }

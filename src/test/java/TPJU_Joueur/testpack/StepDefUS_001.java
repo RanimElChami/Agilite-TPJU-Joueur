@@ -2,9 +2,9 @@ package TPJU_Joueur.testpack;
 
 import java.util.Scanner;
 
-import TPJU_Joueur.classesTP.Equipe;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import handball_classes.Equipe;
 import cucumber.api.java.en.Then;
 
 public class StepDefUS_001 {
