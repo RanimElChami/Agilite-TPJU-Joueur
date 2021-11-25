@@ -1,4 +1,4 @@
-package TPJU_Joueur.testpack;
+package test_classes;
 
 import static org.junit.Assert.*;
 

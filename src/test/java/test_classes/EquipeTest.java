@@ -1,4 +1,4 @@
-package TPJU_Joueur.testpack;
+package test_classes;
 
 import static org.junit.Assert.*;
 
@@ -39,7 +39,7 @@ public class EquipeTest {
 	}
 
 	@Test
-	public void testAjoutDeJoueursEquipe() {
+	public void testAjoutDeJoueursEquipe() throws JoueurDejaMembreException {
 		// Ajouter le joueur à cette équipe
 		ArrayList<Joueur> nouvelleListeJoueurs = equipe.ajouterJoueur(premierNouveauJoueur);
 
@@ -59,20 +59,20 @@ public class EquipeTest {
 	}
 
 	@Test
-	public void testAjoutDePlusieursJoueursEquipe() {
+	public void testAjoutDePlusieursJoueursEquipe() throws JoueurDejaMembreException {
 		// Ajouter plusieurs joueurs en meme temps
 		ArrayList<Joueur> nouvelleListeJoueurs = equipe.ajouterJoueur(premierNouveauJoueur, deuxièmeNouveauJoueur);
 		assertEquals(nouvelleListeJoueurs.size(), 2);
 	}
 
-	@Test
+	@Test(expected = JoueurDejaMembreException.class)
 	public void testJoueurDejaMembreException() throws JoueurDejaMembreException {
 		// Ajouter le joueur à cette équipe
 		ArrayList<Joueur> nouvelleListeJoueurs = equipe.ajouterJoueur(premierNouveauJoueur);
 		nouvelleListeJoueurs = equipe.ajouterJoueur(premierNouveauJoueur);
 	}
 
-	@Test
+	@Test(expected = JoueurDejaMembreException.class)
 	public void testJoueurDejaMembreAutreEquipeException() throws JoueurDejaMembreException {
 		// Ajouter le joueur à cette équipe
 		ArrayList<Joueur> nouvelleListeJoueurs = equipe.ajouterJoueur(deuxièmeNouveauJoueur);
@@ -83,7 +83,7 @@ public class EquipeTest {
 	}
 
 	@Test
-	public void testSuppressionDeJoueursEquipe() throws JoueurNonMembreException {
+	public void testSuppressionDeJoueursEquipe() throws JoueurNonMembreException, JoueurDejaMembreException {
 		ArrayList<Joueur> nouvelleListeJoueurs = equipe.ajouterJoueur(premierNouveauJoueur, deuxièmeNouveauJoueur);
 		// Vérifier que les deux joueurs ont bien été ajoutés, si c'est le cas la taille de la liste doit etre égale à 2
 		assertEquals(nouvelleListeJoueurs.size(), 2);
@@ -103,6 +103,5 @@ public class EquipeTest {
 		assertFalse(nouvelleListeSupression.contains(premierNouveauJoueur));
 		// Vérifier que le joueur n'a plus d'équipe et l'attribut équipe est null
 		assertNull(premierNouveauJoueur.getEquipe());
-
 	}
 }
